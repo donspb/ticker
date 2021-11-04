@@ -1,4 +1,4 @@
-package ru.donspb.ticker
+package ru.donspb.ticker.viewmodel.utils
 
 class TimestampMsFormatter {
 
@@ -19,8 +19,4 @@ class TimestampMsFormatter {
 
     private fun Long.pad(desiredLength: Int) =
         this.toString().padStart(desiredLength, '0')
-
-    companion object {
-        const val DEFAULT_TIME = "00:00:000"
-    }
 }

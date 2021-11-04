@@ -1,16 +1,16 @@
-package ru.donspb.ticker
+package ru.donspb.ticker.repo
 
 import kotlinx.coroutines.*
-import kotlinx.coroutines.NonCancellable.isActive
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import ru.donspb.ticker.viewmodel.utils.TickerStateHolder
 
 class TickerListOrchestrator(
     private val tickerStateHolder: TickerStateHolder,
     private val scope: CoroutineScope
 ) {
     private var job: Job? = null
-    private val mutableTicker = MutableStateFlow("")
+    private val mutableTicker = MutableStateFlow(DEFAULT_TIME_STRING)
     val ticker: StateFlow<String> = mutableTicker
 
     fun start() {
@@ -45,6 +45,10 @@ class TickerListOrchestrator(
     }
 
     private fun clearValue() {
-        mutableTicker.value = ""
+        mutableTicker.value = DEFAULT_TIME_STRING
+    }
+
+    companion object {
+        private const val DEFAULT_TIME_STRING = "00:00:000"
     }
 }

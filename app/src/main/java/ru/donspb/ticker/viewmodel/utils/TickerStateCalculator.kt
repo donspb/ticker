@@ -1,4 +1,4 @@
-package ru.donspb.ticker
+package ru.donspb.ticker.viewmodel.utils
 
 import ru.donspb.ticker.model.TickerState
 
